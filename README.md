@@ -18,7 +18,7 @@ All of these can be configured or replaced by the user.
 
 ## API
 
-The API is intentionally very close to `bubbles/list`, so it should feel familiar if you’ve used the original component.
+The API is almost exactly the same as `bubbles/list`, so it should feel familiar if you’ve used the original component.
 
 The main difference: because items are arranged horizontally, you need to specify the width of each item "cell".
 

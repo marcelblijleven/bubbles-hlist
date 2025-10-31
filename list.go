@@ -21,8 +21,6 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 )
 
-const ellipsis = "…"
-
 func clamp[T cmp.Ordered](v, low, high T) T {
 	if low > high {
 		low, high = high, low
