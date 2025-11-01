@@ -1,4 +1,4 @@
-package bubbleshlist
+package hlist
 
 import (
 	"github.com/charmbracelet/lipgloss"
@@ -97,4 +97,3 @@ func DefaultStyles() (s Styles) {
 
 	return s
 }
-

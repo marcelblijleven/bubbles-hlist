@@ -16,7 +16,7 @@ Just like the original list component, you get:
 
 All of these can be configured or replaced by the user.
 
-## API
+## Usage
 
 The API is almost exactly the same as `bubbles/list`, so it should feel familiar if you’ve used the original component.
 
@@ -27,3 +27,10 @@ You do that with:
 ```go
 list.SetCellWidth(width)
 ```
+
+## Attribution
+
+This project’s `list` package is based on the [`list`](https://github.com/charmbracelet/bubbles/tree/master/list) component from [Charmbracelet/bubbles](https://github.com/charmbracelet/bubbles),  
+modified to adjust the functionality from a vertical list to a horizontal list.
+
+Original code © 2020-2025 Charmbracelet, released under the MIT License.

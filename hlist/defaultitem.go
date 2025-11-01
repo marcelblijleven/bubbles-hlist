@@ -1,4 +1,4 @@
-package bubbleshlist
+package hlist
 
 import (
 	"fmt"
@@ -227,4 +227,3 @@ func (d DefaultDelegate) FullHelp() [][]key.Binding {
 	}
 	return nil
 }
-

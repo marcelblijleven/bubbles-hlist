@@ -1,4 +1,4 @@
-package bubbleshlist
+package hlist
 
 import (
 	"fmt"
@@ -135,4 +135,3 @@ func TestSetFilterState(t *testing.T) {
 		t.Fatalf("Error: expected view to contain '%s'", expected)
 	}
 }
-

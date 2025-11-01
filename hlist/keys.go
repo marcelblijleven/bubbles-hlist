@@ -1,4 +1,4 @@
-package bubbleshlist
+package hlist
 
 import "github.com/charmbracelet/bubbles/key"
 

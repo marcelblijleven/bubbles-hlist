@@ -1,4 +1,4 @@
-package bubbleshlist
+package hlist
 
 import (
 	"cmp"
