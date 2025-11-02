@@ -88,17 +88,20 @@ type DefaultDelegate struct {
 	ShortHelpFunc   func() []key.Binding
 	FullHelpFunc    func() [][]key.Binding
 	height          int
+	width           int
 	spacing         int
 }
 
 // NewDefaultDelegate creates a new delegate with default styles.
 func NewDefaultDelegate() DefaultDelegate {
 	const defaultHeight = 2
+	const defaultWidth = 20
 	const defaultSpacing = 1
 	return DefaultDelegate{
 		ShowDescription: true,
 		Styles:          NewDefaultItemStyles(),
 		height:          defaultHeight,
+		width:           defaultWidth,
 		spacing:         defaultSpacing,
 	}
 }
@@ -106,6 +109,11 @@ func NewDefaultDelegate() DefaultDelegate {
 // SetHeight sets delegate's preferred height.
 func (d *DefaultDelegate) SetHeight(i int) {
 	d.height = i
+}
+
+// SetWidth sets delegate's preferred width.
+func (d *DefaultDelegate) SetWidth(i int) {
+	d.width = i
 }
 
 // Height returns the delegate's preferred height.
@@ -116,6 +124,11 @@ func (d DefaultDelegate) Height() int {
 		return d.height
 	}
 	return 1
+}
+
+// Width returns the delegate's preferred width.
+func (d DefaultDelegate) Width() int {
+	return d.width
 }
 
 // SetSpacing sets the delegate's spacing.
