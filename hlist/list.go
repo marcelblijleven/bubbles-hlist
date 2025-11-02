@@ -48,6 +48,9 @@ type ItemDelegate interface {
 	// Height is the height of the list item.
 	Height() int
 
+	// Width is the width of the list item
+	Width() int
+
 	// Spacing is the size of the horizontal gap between list items in cells.
 	Spacing() int
 
@@ -198,8 +201,7 @@ type Model struct {
 	// this field should be considered ephemeral.
 	filteredItems filteredItems
 
-	delegate  ItemDelegate
-	cellWidth int
+	delegate ItemDelegate
 }
 
 // New returns a new model with sensible defaults.
@@ -779,7 +781,7 @@ func (m *Model) updatePagination() {
 	spacing := max(0, m.delegate.Spacing())
 
 	// Determine items per page
-	cellWidth := max(1, m.cellWidth)
+	cellWidth := max(1, m.delegate.Width())
 	perPage := max(1, (availWidth+spacing)/(cellWidth+spacing))
 	m.Paginator.PerPage = perPage
 
@@ -1078,16 +1080,6 @@ func (m Model) View() string {
 	return lipgloss.JoinVertical(lipgloss.Left, sections...)
 }
 
-// SetCellWidth sets the width of the item cell and updates pagination
-func (m *Model) SetCellWidth(w int) {
-	if w < 1 {
-		w = 1
-	}
-
-	m.cellWidth = w
-	m.updatePagination()
-}
-
 func (m Model) titleView() string {
 	var (
 		view          string
@@ -1216,7 +1208,7 @@ func (m Model) populatedView() string {
 		return m.Styles.NoItems.Render("No " + m.itemNamePlural + ".")
 	}
 
-	cellWidth := max(1, m.cellWidth)
+	cellWidth := max(1, m.delegate.Width())
 	spacing := max(0, m.delegate.Spacing())
 
 	start := m.Paginator.Page * m.Paginator.PerPage
