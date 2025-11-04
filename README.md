@@ -20,12 +20,12 @@ All of these can be configured or replaced by the user.
 
 The API is almost exactly the same as `bubbles/list`, so it should feel familiar if you’ve used the original component.
 
-The main difference: because items are arranged horizontally, you need to specify the width of each item "cell".
+The main difference: because items are arranged horizontally, you need to specify the width of each item "cell" through the delegate.
 
 You do that with:
 
 ```go
-list.SetCellWidth(width)
+delegate.SetWidth(width)
 ```
 
 ## Attribution
