@@ -173,14 +173,8 @@ func (d DefaultDelegate) Render(w io.Writer, m Model, index int, item Item) {
 	textwidth := m.width - s.NormalTitle.GetPaddingLeft() - s.NormalTitle.GetPaddingRight()
 	title = ansi.Truncate(title, textwidth, ellipsis)
 	if d.ShowDescription {
-		var lines []string
-		for i, line := range strings.Split(desc, "\n") {
-			if i >= d.height-1 {
-				break
-			}
-			lines = append(lines, ansi.Truncate(line, textwidth, ellipsis))
-		}
-		desc = strings.Join(lines, "\n")
+		lines := strings.Split(desc, "\n")
+		lines = lines[0 : d.height-1]
 	}
 
 	// Conditions

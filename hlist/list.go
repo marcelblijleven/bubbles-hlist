@@ -7,6 +7,7 @@ import (
 	"sort"
 	"strings"
 	"time"
+	"unicode"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
@@ -1228,7 +1229,13 @@ func (m Model) populatedView() string {
 		globalIndex := start + i
 		m.delegate.Render(&b, m, globalIndex, item)
 
-		raw := ansi.Truncate(b.String(), cellWidth, ellipsis)
+		// raw := ansi.Truncate(b.String(), cellWidth, ellipsis)
+		var lines []string
+		for _, line := range strings.Split(b.String(), "\n") {
+			line = strings.TrimRightFunc(line, unicode.IsSpace)
+			lines = append(lines, ansi.Truncate(line, cellWidth, ellipsis))
+		}
+		raw := strings.Join(lines, "\n")
 		cell := lipgloss.NewStyle().Width(cellWidth).Height(m.delegate.Height()).Render(raw)
 
 		if i < len(pageItems)-1 && spacing > 0 {
