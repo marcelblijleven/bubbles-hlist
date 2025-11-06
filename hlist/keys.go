@@ -36,11 +36,11 @@ func DefaultKeyMap() KeyMap {
 		// Browsing.
 		CursorLeft: key.NewBinding(
 			key.WithKeys("left", "h"),
-			key.WithHelp("↑/l", "up"),
+			key.WithHelp("←/h", "left"),
 		),
 		CursorRight: key.NewBinding(
 			key.WithKeys("right", "l"),
-			key.WithHelp("↓/j", "down"),
+			key.WithHelp("→/l", "right"),
 		),
 		PrevPage: key.NewBinding(
 			key.WithKeys("["),
